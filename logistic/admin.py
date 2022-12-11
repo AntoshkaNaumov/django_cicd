@@ -15,4 +15,4 @@ class ProductAdmin(admin.ModelAdmin):
 @admin.register(Stock)
 class StockAdmin(admin.ModelAdmin):
     list_display = ['address']
-    inlines = [StockProductInline,]
+    inlines = [StockProductInline, ]
