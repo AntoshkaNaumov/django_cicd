@@ -61,3 +61,11 @@ jobs:
           DB_PASSWORD: ${{ env.POSTGRES_PASSWORD }}
           DB_HOST: ${{ env.POSTGRES_HOST }}
           DB_PORT: ${{ ENV.POSTGRES_PORT }}
+
+      - name: Деплой
+        uses: appleboy/ssh-action
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USER }}
+          password: ${{ secrets.SSH_PASSWORD }}
+          script: expect /home/anton/django_cicd/pull.exp
