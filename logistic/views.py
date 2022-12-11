@@ -1,4 +1,6 @@
+from rest_framework.decorators import api_view
 from rest_framework.viewsets import ModelViewSet
+from rest_framework.response import Response
 
 from logistic.models import Product, Stock
 from logistic.serializers import ProductSerializer, StockSerializer
@@ -20,3 +22,8 @@ class StockViewSet(ModelViewSet):
     # при необходимости добавьте параметры фильтрации
     filter_backends = [DjangoFilterBackend]
     filter_fields = ['address', 'products']
+
+
+@api_view(['GET'])
+def sample_view(request):
+    return Response('Hello world!')
