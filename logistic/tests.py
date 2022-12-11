@@ -1,8 +1,8 @@
-from rest_framework.test import APITestCase
+from rest_framework.test import APIClient, APITestCase
 
 
 class TestAPIViews(APITestCase):
     def test_sample_view(self):
-        client = APITestCase()
+        client = APIClient()
         response = client.get('/test/')
         self.assertEqual(response.status_code, 200)
